@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+	<link type="text/css" media="all" href="{% static "css/index.css" %}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    $('li.active').removeClass('active').children().addClass('sinSeleccionar');
+    $('li.inicio').addClass('active').children.removeClass('sinSeleccionar');
+  });
+
+</script>
+
+
+  <!-- Contenido de la pagina Inicio -->
+<div class="cambiajumbo jumbotron">
+    <!-- Sub-contenido pagina inicio -->
+	<div>
+		<h2>Que es cocina Mantuana?</h2>
+  		<p>Cocina mantuana es un grupo de jovenes emprendedores e innovadores, amantes de la cocina venezolana , luego aca va una pajita mas para que mariana se inspire, bla, bla bla</p>
+  		<div class="botones">
+  			  <p><a class="btn btn-primary btn-lg" role="button">Nuestra Historia</a></p>
+  			  <p><a class="btn btn-primary btn-lg" role="button">Quienes somos</a></p>
+  		</div>
+	</div>
+    <!-- Sub-contenido pagina inicio -->
+	<div>
+		<h2>Nuestros Productos</h2>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in </p>
+  		<div class="botones">
+  			  <p><a class="btn btn-primary btn-lg" role="button">Productos</a></p>
+  		</div>
+	</div>
+
+    <!-- Sub-contenido pagina inicio -->
+	<div>
+		<h2>Donde Encontrarnos</h2>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in </p>
+  		<div class="botones">
+  			  <p><a class="btn btn-primary btn-lg" role="button">Tiendas</a></p>
+  		</div>
+	</div>
+
+    <!-- Sub-contenido pagina inicio -->
+	<div>
+  		<div class="boton-contacto">
+  			  <p><a class="btn btn-primary btn-lg" role="button">Contactanos!</a></p>
+  		</div>
+	</div>
+
+</div>
+
+{% endblock %}

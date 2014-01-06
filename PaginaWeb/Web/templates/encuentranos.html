@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+    <!-- Hoja de estilos para productos -->
+	<link type="text/css" media="all" href="{% static "css/productos.css" %}" rel="stylesheet" />
+    <!-- Script de google maps -->
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDazlqr1uLWokKKOX79qHbohHjP9LdpkuU&sensor=false">
+  </script>
+
+{% endblock %}
+
+{% block content %}
+
+
+<script type="text/javascript">
+
+  /* Script para cambiar seleccion en el menu principal */
+  
+  $(document).ready(function(){
+    $('li.active').removeClass('active').children().addClass('sinSeleccionar');
+    $('li.encuentranos').addClass('active').children.removeClass('sinSeleccionar');
+  });
+
+</script>
+
+
+
+<div class="tipo-producto">
+
+<div class="titulo-tipo-producto">
+<p>Locales comerciales donde buscarnos</p>
+
+</div>
+
+<div class="row">
+
+
+  {% for cliente in clientes %}
+
+      <script type="text/javascript">
+
+      /* Script para crear mapa de google maps */
+
+      function initialize() {
+          /* latitud y longitud del mapa */
+        var myLatlng = new google.maps.LatLng({{cliente.c_latitud}}, {{cliente.c_longitud}});
+          /* Opciones del mapa */
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 15
+        };
+          /* Declaracion del mapa y asignacion al DOM */
+        var map = new google.maps.Map(document.getElementById("map-canvas-{{cliente.c_latitud}}-{{cliente.c_longitud}}"),
+            mapOptions);
+          /* Declaracion de marker en el mapa */
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+      }
+          /* Inicializacion del mapa */
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+    </script>
+        <!-- Contenedor de local -->
+      <div class="producto col-md-11">   
+        <!-- Contenedor de mapa del local -->
+      <div class="image-container" id="map-canvas-{{cliente.c_latitud}}-{{cliente.c_longitud}}">
+      </div>
+        <!-- Contenedor de info del mapa -->
+      <div class="caption">
+        <a href="/index/encuentranos-detalle/{{cliente.id}}"><h3>{{cliente.c_nombre}}</h3></a>
+        <p>{{cliente.c_correo}}</p>
+          <!-- Tabla con info del mapa -->
+        <table class="info_producto">
+        <tbody>
+            <tr>
+              <td class ="key">
+                <label>RIF:</label>
+              </td>
+              <td class ="value">
+                <label>{{cliente.c_rif}}</label>
+              </td>
+            </tr>
+            <tr>
+              <td class ="key">
+                <label>lat, long:</label>
+              </td>
+              <td class ="value">
+                <label>{{cliente.c_latitud}}, {{cliente.c_longitud}}</label>
+              </td>
+            </tr>
+        </tbody>
+        </table>
+        <p><a href="/index/encuentranos-detalle/" class="btn btn-primary" role="button">Detalles</a> </p>
+      </div>
+  </div>
+
+{% endfor %}
+
+</div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}

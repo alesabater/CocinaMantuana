@@ -1,0 +1,98 @@
+.header
+{
+	height: 280px;
+}
+
+.header img 
+{
+	height: 100%;
+	width: 100%;
+}
+
+#menu-bar
+{
+	height: 200px;
+}
+
+#instagramTimeline
+{
+			float: right;
+			width: 320px;
+			height: 459px;
+}
+
+#twitterTimeline
+{
+	float: right;
+	width: 313px;
+	height: 600px;
+}
+
+.margen
+{
+	padding-left: 15px;
+}
+
+.textoMenu
+{
+	font-family: 'Lato', sans-serif;
+}
+
+.textoTitulo
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 52pt;
+}
+
+.titulo
+{
+	height: 120px;
+	background-color: #DFA500;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 120px; 
+
+}
+.sinSeleccionar
+{
+	color : #737373;
+	background-color: #EFC03C;
+}
+
+.fondo
+{
+	background-color: #EFCD6C;
+}
+
+.socialIcon
+	{
+
+		float: right;
+		height: 35px;
+		width: 35px;
+		background-repeat:no-repeat;
+		background-size: contain;
+		margin-left: 20px;
+				
+	}
+ul#socialList
+	{
+		list-style: none;
+		float: right;
+		margin-top: 3px;
+		padding-right: 70px;
+	}
+
+.facebook
+{
+	background-image:url(../Images/facebook_icon.png);
+}
+.twitter
+{
+	background-image:url(../Images/twitter_icon.png);
+}
+.instagram
+{
+	background-image:url(../Images/instagram_icon.png);
+}
+

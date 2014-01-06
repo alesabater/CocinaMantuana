@@ -1,0 +1,83 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lan="es">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<!-- Titulo de la pagina -->
+		<title>Cocina Mantuana - Inicio</title>
+			<!-- Fonts Google -->
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+			<!-- Script de Compatibilidad -->
+		{% block head %}{% endblock %}
+		<script src="{% static "js/jquery-2.0.0.min.js" %}"></script>
+			<!-- Hoja de Estilos -->
+		<link type="text/css" media="all" href="{% static "css/base.css" %}" rel="stylesheet" />
+			<!-- Hoja de Estilos Bootstrap -->
+		<link rel="stylesheet" href="{% static "css/bootstrap3.0/dist/css/bootstrap.css" %}" media="all">
+		<link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body>
+
+
+		<div id="page-wrapper">
+
+				<!-- Imagen de Hecho en Venezuela -->
+			<div class="header">
+				<img src="{% static "images/cover2.jpg" %}">
+			</div>
+
+				<!-- Contenedor de todo el cuerpo de la pagina -->
+			<div class="row margen body-wrapper">
+					<!-- Contenedor de la barra de menu y thumbnails de redes sociales -->
+				<div id="menuPrincipal row">
+						<!-- Contenedor de menu principal -->
+					<div class="col-md-9 fondo">
+							<!-- Lista de Menu principal -->
+						<ul class="nav nav-tabs textoMenu row">
+						  <li class="active inicio" background-color="none"><a href="/index">Inicio</a></li>
+						  <li class="encuentranos"><a class="textoMenu sinSeleccionar" href="/index/encuentranos/">Encuentranos</a></li>
+						  <li class="productos"><a class="textoMenu sinSeleccionar" href="/index/productos/">Nuestros Productos</a></li>
+						  <li class="eventos"><a class="textoMenu sinSeleccionar" href="/index/eventos/">Eventos</a></li>
+						  <li class="contacto"><a class="textoMenu sinSeleccionar" href="/index/contacto/">Contacto</a></li>
+						</ul>
+					</div>
+						<!-- Thumbnails de Redes Sociales -->
+					<div class="col-md-3 fondo"  style="height:41px;">
+							<!-- Lista de Thumbnails -->
+						<ul id="socialList">
+							<li class="socialIcon facebook"><a href="#" id="facebook"></a></li>
+							<li class="socialIcon twitter"><a href="#" id="twitter"></a></li>
+							<li class="socialIcon instagram"><a href="#" id="instagram"></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contenedor de contenido de la pagina -->
+			<div class="col-md-9 body">
+				{% block content %}
+
+				{% endblock %}
+			</div>
+
+				<!-- Contenedor de Widgets de redes sociales -->
+			<div class="col-md-3">
+					<!-- Instagram Widget -->
+				<div id="InstagramTimeline">
+						<iframe src="http://snapwidget.com/in/?u=Y29jaW5hbWFudHVhbmF8aW58MTM4fDJ8M3wjRUFCMjAwfHllc3w1fGZhZGVPdXR8b25TdGFydA==" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:306px; height: 459px" ></iframe>				
+				</div>
+					<!-- Twitter Widget -->
+				<div id="twitterTimeline">
+						<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CocinaMantuana" data-widget-id="369475350197043201">Tweets por @CocinaMantuana</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+			</div>
+		</div>
+
+		</div>
+
+
+	</body>

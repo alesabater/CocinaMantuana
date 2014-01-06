@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+    <!-- Hoja de estilos para productos -->
+	<link type="text/css" media="all" href="{% static "css/productos.css" %}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+  
+  /* Script para cambiar seleccion en el menu principal */
+
+  $(document).ready(function(){
+    $('li.active').removeClass('active').children().addClass('sinSeleccionar');
+    $('li.productos').addClass('active').children.removeClass('sinSeleccionar');
+  });
+
+</script>
+
+
+  <!-- Fondo de productos de un mismo tipo -->
+<div class="tipo-producto">
+
+  <!-- Titulo de un tipo de producto -->
+<div class="titulo-tipo-producto">
+<p>Mermeladas</p>
+</div>
+
+<div class="row">
+{% for producto in productos %}
+        <!-- Contenedor de producto -->
+      <div class="producto col-md-11">   
+        <!-- Contenedor de imagen de producto -->
+      <div class="image-container">
+        <img src="{% static producto.p_foto %}" alt="...">
+      </div>
+        <!-- Contenedor de info del producto -->
+      <div class="caption">
+        <h3>{{producto.p_nombre}}</h3>
+        <p>{{producto.p_descripcion}}</p>
+            <!-- Tabla para mostrar info del producto -->
+        <table class="info_producto">
+        <tbody>
+            <tr>
+              <td class ="key">
+                <label>Ingredientes:</label>
+              </td>
+              <td class ="value">
+                <label>{{producto.p_ingredientes}}</label>
+              </td>
+            </tr>
+            <tr>
+              <td class ="key">
+                <label>Costo:</label>
+              </td>
+              <td class ="value">
+                <label>{{producto.p_costo}}</label>
+              </td>
+            </tr>
+        </tbody>
+        </table>
+        <p><a href="#" class="btn btn-primary" role="button">Ordenar Producto</a> </p>
+      </div>
+  </div>
+{% endfor %}
+
+</div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}
